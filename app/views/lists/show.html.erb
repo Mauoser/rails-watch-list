@@ -1,0 +1,22 @@
+<h2><%= @list.name %></h2>
+
+<div class="card-deck">
+
+<% @list.movies.each do |movie| %>
+<% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+
+  <div class="card">
+    <img class="card-img-top" src=<%= movie.poster_url %> alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= bookmark.movie.title %></h5>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+
+
+<% end %>
+
+</div>
+
+<h2><% @list.bookmarks.all %></h2>
